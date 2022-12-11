@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 from csv import reader as csv_reader
-from git import Repo as git_Repo
+from git import Repo as git_repo
 from os import path as os_path
 
-repo_root = os_path.realpath(git_Repo(__file__, search_parent_directories=True).working_tree_dir)
-input_file = f"{repo_root}/2022/day-01/input.txt"
+repo_root = os_path.realpath(git_repo(__file__, search_parent_directories=True).working_tree_dir)
+input_file = f"{repo_root}/2022/day-01/input_01.txt"
 
 
 def main():
