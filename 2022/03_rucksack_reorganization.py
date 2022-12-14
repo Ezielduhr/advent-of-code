@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
-
-from git import Repo as git_Repo
-from os import path as os_path
+from library import shared_functions
 from string import ascii_lowercase as string_ascii_lowercase, ascii_uppercase as string_ascii_uppercase
 
-repo_root = os_path.realpath(git_Repo(__file__, search_parent_directories=True).working_tree_dir)
-input_file = f"{repo_root}/2022/day-03/input_03.txt"
 priority_translation = dict()
 rucksack_content = list()
 
@@ -23,8 +19,8 @@ def initialize_globals():
         x += 1
 
     global rucksack_content
-    with open(input_file, 'r') as input_stream:
-        rucksack_content = [line.replace('\n', '') for line in input_stream.readlines()]
+    challenge_input = shared_functions.get_input("input_03.txt")
+    rucksack_content = [line.replace('\n', '') for line in challenge_input]
 
 
 def get_total_priority():
@@ -67,4 +63,4 @@ def main():
 
 
 if __name__ == '__main__':
-    print(main())
+    print(f"Total priority of mismatched items: {main()[0]}. Total priority of security badges {main()[1]}")
