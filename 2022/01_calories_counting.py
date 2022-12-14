@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-from csv import reader as csv_reader
 from library import shared_functions
 
 
