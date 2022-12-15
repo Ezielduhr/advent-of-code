@@ -8,6 +8,7 @@ def main():
     total_amount_per_elf = list()
     current_elf_food_amount = int()
     for line in challenge_input:
+        # NOTE: last elf isn't counted
         if line == '\n':
             total_amount_per_elf.append(current_elf_food_amount)
             current_elf_food_amount = int()

@@ -57,7 +57,7 @@ def main(starting_order, instructions_to_follow):
     # third element is the stack to place it
     # e.g. move 3 from 9 to 7
 
-    # NOTE: Shallow copy just makes a new reference, deep copy makes an isolated duplicate
+    # NOTE: Shallow copy just makes a new reference for dicts, deep copy makes an isolated duplicate
     actual_starting_order = deep_copy(starting_order)
 
     for instruction in instructions_to_follow:

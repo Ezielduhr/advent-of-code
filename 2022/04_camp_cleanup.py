@@ -43,6 +43,6 @@ def main():
 
 
 if __name__ == "__main__":
-    outputs = main()
-    print(f"times on section is entirely cleaned by paired elf: {outputs[0]}")
-    print(f" Just general silliness {outputs[1]}")
+    obvious, just = main()
+    print(f"times on section is entirely cleaned by paired elf: {obvious}")
+    print(f"Just general silliness {just}")
