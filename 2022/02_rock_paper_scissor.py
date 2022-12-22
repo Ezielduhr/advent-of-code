@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-from typing import Dict
-from library import shared_functions
+from library.shared_functions import get_input
 
 
 def main(point_system):
-    challenge_input = shared_functions.get_input("input_02.txt")
+    """ Runs through a series of Rock Paper Scissors 'matches'
+    and calculates score based on to be provided point system """
+    challenge_input = get_input("input_02.txt")
 
     total_score: int = int()
     for line in challenge_input:

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-
-from library import shared_functions
-from copy import deepcopy as deep_copy
+from library.shared_functions import get_input
+import copy
 
 
 def parse_setup(setup_input):
@@ -41,7 +40,7 @@ def parse_instructions(instructions_input):
 
 
 def initialize_input():
-    challenge_input = shared_functions.get_input("input_05.txt")
+    challenge_input = get_input("input_05.txt")
 
     end_of_setup = challenge_input.index('\n')
     raw_setup = challenge_input[:end_of_setup]
@@ -58,7 +57,7 @@ def main(starting_order, instructions_to_follow):
     # e.g. move 3 from 9 to 7
 
     # NOTE: Shallow copy just makes a new reference for dicts, deep copy makes an isolated duplicate
-    actual_starting_order = deep_copy(starting_order)
+    actual_starting_order = copy.deepcopy(starting_order)
 
     for instruction in instructions_to_follow:
         amount, source, destination = instruction

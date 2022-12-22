@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-
-from library import shared_functions
+from library.shared_functions import get_input
 
 
 def sections_overlap(start_first, end_first, start_second, end_second, strict):
@@ -18,7 +17,7 @@ def sections_overlap(start_first, end_first, start_second, end_second, strict):
 
 
 def main():
-    challenge_input = shared_functions.get_input("input_04.txt")
+    challenge_input = get_input("input_04.txt")
     obvious_assignment_screw_ups = int()
     just_screw_ups = int()
 

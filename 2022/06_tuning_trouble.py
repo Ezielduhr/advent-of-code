@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-
-from library import shared_functions
+from library.shared_functions import get_input
 
 
 def main():
-    challenge_input = shared_functions.get_input("input_06.txt")[0]
+    challenge_input = get_input("input_06.txt")[0]
     start_pattern_length = 4
     start_message_length = 14
 

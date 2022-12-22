@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
-from library import shared_functions
+from library.shared_functions import get_input
 
 
 def main():
-    challenge_input = shared_functions.get_input("input_01.txt")
+    """ Creates a list of total calories per elf """
+    challenge_input = get_input("input_01.txt")
 
     total_amount_per_elf = list()
     current_elf_food_amount = int()
     for line in challenge_input:
-        # NOTE: last elf isn't counted
         if line == '\n':
             total_amount_per_elf.append(current_elf_food_amount)
             current_elf_food_amount = int()
         else:
             current_elf_food_amount += int(line)
 
+    if current_elf_food_amount:
+        # This statement makes sure that the last elf is counted
+        # even if there's no new line at the end of the input file
+        total_amount_per_elf.append(current_elf_food_amount)
     return total_amount_per_elf
 
 

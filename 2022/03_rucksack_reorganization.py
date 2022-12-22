@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from library import shared_functions
-from string import ascii_lowercase as string_ascii_lowercase, ascii_uppercase as string_ascii_uppercase
+from library.shared_functions import get_input
+import string
 
 priority_translation = dict()
 rucksack_content = list()
@@ -10,16 +10,16 @@ def initialize_globals():
     global priority_translation
     x = 1
 
-    for lowercase in string_ascii_lowercase:
+    for lowercase in string.ascii_lowercase:
         priority_translation[lowercase] = x
         x += 1
 
-    for uppercase in string_ascii_uppercase:
+    for uppercase in string.ascii_uppercase:
         priority_translation[uppercase] = x
         x += 1
 
     global rucksack_content
-    challenge_input = shared_functions.get_input("input_03.txt")
+    challenge_input = get_input("input_03.txt")
     rucksack_content = [line.replace('\n', '') for line in challenge_input]
 
 
