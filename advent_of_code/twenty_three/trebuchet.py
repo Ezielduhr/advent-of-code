@@ -6,14 +6,18 @@ class CalibrationTool:
         self.calibration_pairs = list()
         self.calibration_sum = int()
 
-    def calibrate(self, stuff_to_calibrate_on: list):
+    def calibrate(self, stuff_to_calibrate_on: str):
         for line in stuff_to_calibrate_on.split("\n"):
             if line == '':
                 continue
-            # TODO fix "twone"
-            improved_line = line.replace("one", "1").replace("two", "2").replace("three", "3").replace("four",
-                                                                                                       "4").replace(
-                "five", "5").replace("six", "6").replace("seven", "7").replace("eight", "8").replace("nine", "9")
+            # dirty fix for the 'twone' overlapping replace problem
+            improved_line = line.replace("one", "one1one").replace("two", "two2two").replace("three",
+                                                                                             "three3three").replace(
+                "four",
+                "four4four").replace(
+                "five", "five5five").replace("six", "six6six").replace("seven", "seven7seven").replace("eight",
+                                                                                                       "eight8eight").replace(
+                "nine", "nine9nine")
             all_integers = [char for char in improved_line if char.isnumeric()]
             first_int = all_integers[0]
             last_int = all_integers[-1]
@@ -28,4 +32,4 @@ def main(challenge_input):
 
 
 if __name__ == "__main__":
-    main(GetInput(2023).set_input("input_01.txt"))
+    main(GetInput("twenty_three").set_input("input_01.txt"))
