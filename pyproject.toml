@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "advent_of_code"
+version = "0.1.0"
+description = ""
+authors = ["madWhisky <wouter.s@freedom.nl>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pytest = "^7.4.3"
+gitpython = "^3.1.40"
+
+
+[tool.poetry.group.developer.dependencies]
+black = "^23.11.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
