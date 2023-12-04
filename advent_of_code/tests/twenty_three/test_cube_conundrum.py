@@ -1,8 +1,10 @@
 import pytest
+from advent_of_code.twenty_three.cube_conundrum import CubeTool
 
 
 @pytest.fixture()
 def cube_input():
+    cube_tool = CubeTool()
     challenge_input = """
 Game 1: 10 green, 7 red, 6 blue; 12 green, 2 blue, 5 red; 7 green, 10 blue, 3 red; 11 green, 7 red; 5 blue, 8 green
 Game 2: 1 green, 2 red; 2 blue, 1 green, 6 red; 5 red, 1 blue; 2 blue, 1 green, 1 red; 9 red
@@ -12,15 +14,15 @@ Game 5: 3 red, 1 blue; 2 red, 1 green, 2 blue; 3 blue, 2 red, 1 green; 1 red, 1 
     """
     minimum_cubes = {"blue": 3, "red": 5, 'green': 2}
 
-    yield challenge_input, minimum_cubes
-    del challenge_input, minimum_cubes
+    yield cube_tool, challenge_input, minimum_cubes
+    del cube_tool, challenge_input, minimum_cubes
 
 
-def test_success(cube_input):
-    result = None
-    assert "Game 1" is True
-    assert result == 8
+def test_games_possible(cube_input):
+    cube_tool, challenge_input, minimum_cubes = cube_input
 
+    cube_tool.add_input(challenge_input)
+    cube_tool.calculate_games_possible(minimum_cubes)
 
-
-
+    assert cube_tool.games_possible[0] is True
+    assert cube_tool.sum_of_game_possible == 8
