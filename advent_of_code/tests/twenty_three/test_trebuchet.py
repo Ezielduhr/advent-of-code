@@ -19,7 +19,7 @@ six1bqqvrxndt
 """
     twone_input = "twone"
     yield calibration_tester, challenge_input, twone_input
-    del challenge_input
+    del calibration_tester, challenge_input, twone_input
 
 
 def test_calibrate_success(lines_to_calibrate):
