@@ -1,3 +1,4 @@
+import math
 from advent_of_code.utilities import GetInput
 
 
@@ -5,8 +6,11 @@ class CubeTool:
     def __init__(self):
         self.games_played = dict()
         self.highest_numbers_per_game = dict()
+        self.lowest_number_per_game = dict()
         self.games_possible = list()
         self.sum_of_games_possible = int()
+        self.power_of_highest_numbers = list()
+        self.sum_of_power_highest_numbers = int()
 
     def add_input(self, challenge_input):
         for line in challenge_input.split('\n'):
@@ -20,14 +24,14 @@ class CubeTool:
 
     def calculate_highest_per_game(self):
         for game_number, hands in self.games_played.items():
-            temp_dict = {}
+            highest_dict = {}
             for hand in hands:
                 for colour, value in hand.items():
-                    old_value = temp_dict.get(colour) or 0
+                    old_value = highest_dict.get(colour) or 0
                     if old_value < value:
-                        temp_dict[colour] = value
+                        highest_dict[colour] = value
 
-            self.highest_numbers_per_game[game_number] = temp_dict
+            self.highest_numbers_per_game[game_number] = highest_dict
 
     def calculate_games_possible(self, challenge_input):
         for game, values in self.highest_numbers_per_game.items():
@@ -35,13 +39,19 @@ class CubeTool:
                 self.games_possible.append(int(game.split(' ')[1]))
         self.sum_of_games_possible = sum(self.games_possible)
 
+    def calculate_power_of_highest(self):
+        for colors in self.highest_numbers_per_game.values():
+            over_nine_thousand = [value for value in colors.values()]
+            self.power_of_highest_numbers.append(math.prod(over_nine_thousand))
+        self.sum_of_power_highest_numbers = sum(self.power_of_highest_numbers)
+
 
 def main(challenge_input, minimum_numbers):
     cube_tool = CubeTool()
     cube_tool.add_input(challenge_input)
     cube_tool.calculate_highest_per_game()
     cube_tool.calculate_games_possible(minimum_numbers)
-    print("bla")
+    cube_tool.calculate_power_of_highest()
 
 
 if __name__ == "__main__":
