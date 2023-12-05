@@ -5,7 +5,7 @@ from advent_of_code.twenty_three.trebuchet import CalibrationTool
 @pytest.fixture()
 def lines_to_calibrate():
     calibration_tester = CalibrationTool()
-    challenge_input = """
+    test_input = """
 eightqrssm9httwogqshfxninepnfrppfzhsc
 one111jxlmc7tvklrmhdpsix
 bptwone4sixzzppg
@@ -18,8 +18,8 @@ mvhsixpptztjh13sixthree2
 six1bqqvrxndt
 """
     twone_input = "twone"
-    yield calibration_tester, challenge_input, twone_input
-    del calibration_tester, challenge_input, twone_input
+    yield calibration_tester, test_input, twone_input
+    del calibration_tester, test_input, twone_input
 
 
 def test_calibrate_success(lines_to_calibrate):
