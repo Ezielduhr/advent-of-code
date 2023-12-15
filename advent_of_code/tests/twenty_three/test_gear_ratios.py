@@ -5,8 +5,6 @@ from advent_of_code.twenty_three.gear_ratios import GearTool
 @pytest.fixture()
 def gear_ratio_setup():
     gear_tool = GearTool()
-    # Numbers adjacent to symbols 362+366+487+48+18+908+432+502+416+391+610+514+71+869+633+104+466+974+138+372+889+55
-    # +134+250+228+609+69+150 totals to 11065
     # TODO fix this horrible way of noting down test input
     test_input = """.362*366.................487+.48&.......600..180....845........................535...18...........397.#908....432*........229......346......
 .................*................835....................578......*502...............*..416.............................................391.
@@ -21,5 +19,7 @@ def gear_ratio_setup():
 
 def test_sum_gear_successful(gear_ratio_setup):
     gear_tool, test_input = gear_ratio_setup
-
-    assert gear_tool.sum_of_gears_counted == 11065
+    gear_tool.read_grid(test_input)
+    gear_tool.go_through_grid()
+    gear_tool.calculate_sum_of_gears()
+    assert gear_tool.sum_of_gears_counted == 18383
