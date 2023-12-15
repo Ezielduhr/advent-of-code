@@ -3,10 +3,10 @@ from advent_of_code.twenty_three.scratchcards import PileOfCards
 
 
 @pytest.fixture()
-def test_setup():
+def pile():
     pile = PileOfCards()
     test_input = """Card  10: 38 40 81 54 30 61 82 51 99 71 | 43 74 45 70 18 31 66 96 21 92 61 91 55 67 41 15 77 88 11  7  8 93 30 35 82
-Card  11: 69 47 52 27 78 17 39 88 83 71 | 70 87 71 33 25 43 82 49 30 58 67 89 95 74 93 28 99 85 78 73 10 75  9 91 15
+Card  11: 69 47 52 27 78 17 39 88 83 72 | 70 87 71 33 25 43 82 49 30 58 67 89 95 74 93 28 99 85 78 73 10 75  9 91 15
 Card  12: 54 46 50 79 57 88 90 61 12  5 | 64 33 13 35 57 29 81 89 49 47 37 25 66 68 20 73 19 36 39 79  5 96  3 95 42
 Card  13: 67 56 62 13 55 38 89 10 91 75 | 23 58 95 92 17 52 84 64 77 54 20 98 89 83  4 66 87 25 27 51  2 37 81 56 12
 Card  14: 54 42 51 76 66 14 74  6 35 89 | 50 47 63 16 91 41 43 39  2 95 84  8 18 23 83 64 97 48 96 69 29 44  1 24 72
@@ -24,13 +24,13 @@ Card  20: 73 98 10 19  2 39 42 81 93 41 | 87 42 93 34 95 82 73 83 89 31 70 98 20
     del pile
 
 
-def simple_score(test_setup):
-    pass
+def simple_score(pile):
+    assert pile.cards[1].score == 1
 
 
-def multiply_score(test_setup):
-    pass
+def multiply_score(pile):
+    assert pile.cards[0].score == 4
 
 
-def sum_of_cards(test_setup):
-    pass
+def sum_of_cards(pile):
+    assert pile.sum_of_cards_score == int()
