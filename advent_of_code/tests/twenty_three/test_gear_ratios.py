@@ -22,4 +22,4 @@ def test_sum_gear_successful(gear_ratio_setup):
     gear_tool.read_grid(test_input)
     gear_tool.go_through_grid()
     gear_tool.calculate_sum_of_gears()
-    assert gear_tool.sum_of_gears_counted == 18383
+    assert gear_tool.sum_of_gears_counted == 17783

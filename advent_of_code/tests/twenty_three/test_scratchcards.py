@@ -17,20 +17,27 @@ Card  18: 27  3 77 91 69 84 14 32 50  5 |  6  5 64 91  3 10  4  1 84 76 77 70 27
 Card  19: 93 65  3 23 46 82 49 95 30 91 | 35 89 49 82 32 18 71 46 81 93 95 23 27 45 96 65 94 24 70  3 30 19 85 56 91
 Card  20: 73 98 10 19  2 39 42 81 93 41 | 87 42 93 34 95 82 73 83 89 31 70 98 20 12 41 61 10 65 81 71 19 39 35  2  5"""
 
-    for line in test_input:
+    for line in test_input.split('\n'):
         pile.add_card(line)
+    [card.calculate_score() for card in pile.cards]
 
     yield pile
     del pile
 
 
-def simple_score(pile):
+def test_simple_score(pile):
     assert pile.cards[1].score == 1
 
 
-def multiply_score(pile):
+def test_multiply_score(pile):
     assert pile.cards[0].score == 4
 
 
-def sum_of_cards(pile):
-    assert pile.sum_of_cards_score == int()
+def test_sum_of_cards(pile):
+    pile.calculate_sum_of_cards()
+    assert pile.sum_of_cards_score == 2571
+
+
+def test_amount_of_cards(pile):
+    pile.duplicate_cards()
+    assert pile.total_amount_of_cards == 66
