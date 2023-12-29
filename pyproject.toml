@@ -11,6 +11,7 @@ pytest = "^7.4.3"
 gitpython = "^3.1.40"
 matplotlib = "^3.8.2"
 pandas = "^2.1.4"
+pytest-bdd = "^7.0.1"
 
 
 [tool.poetry.group.developer.dependencies]

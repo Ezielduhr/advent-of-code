@@ -1,23 +1,30 @@
+from pytest_bdd import scenarios, given, when, then, parsers
 import pytest
+from advent_of_code.settings import repo_root
 from advent_of_code.twenty_three.if_you_give_a_seed_a_fertilizer import MapOMatic
 
+feature_path = f"{repo_root}/features/twenty_three/if_you_give_a_seed_a_fertilizer.feature"
 
-@pytest.fixture
-def mapper():
-    test_input = """seeds: 1 2 3 10 101 1001
 
-seed-to-soil map:
-2 52 2
-4 54 8
-99 990 1000
+scenarios(feature_path)
 
-soil-to-fertilizer map:
-1  51 1
-51 11 10 
-990 100 1000"""
+
+@given(parsers.parse("mapping input is: {test_input}"), target_fixture='mapper')
+def setup_soil_to_fertilizer_map(test_input):
     mapper = MapOMatic().generate_maps(test_input)
+
     yield mapper
     del mapper
+
+
+@when(parsers.parse("looking up the seed numbers are: {lookup_input}"))
+def lookup_seeds(mapper, lookup_input):
+    mapper.lookup_seeds(lookup_input)
+
+
+@then("the lowest location is 12")
+def lookup_lowest_location():
+    pass
 
 
 def test_mapping(mapper):
